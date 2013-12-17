@@ -1,0 +1,35 @@
+nuget {
+    nuspec {
+        id: sdl2;
+        version : 2.0.1;
+        title: Simple DirectMedia Layer;
+        authors: {Sam Lantinga, SDL contributors};
+        owners: {Joseph Lawrance};
+        licenseUrl: "http://www.libsdl.org/license.php";
+        projectUrl: "http://www.libsdl.org/index.php";
+        iconUrl: "http://www.libsdl.org/media/SDL_logo.png";
+        requireLicenseAcceptance:false;
+        summary: "This is the Simple DirectMedia Layer, a generic API that provides low level access to audio, keyboard, mouse, and display framebuffer across multiple platforms.";
+        description: "This is the Simple DirectMedia Layer, a generic API that provides low level access to audio, keyboard, mouse, and display framebuffer across multiple platforms.";
+        releaseNotes: Release of SDL2 2.0.1 libraries.;
+        copyright: Copyright 2013;
+        tags: { SDL2, native, CoApp };
+    };
+    files {
+        #defines {
+            SDL2_SDK = SDL2-2.0.1;
+        }
+        include: { "${SDL2_SDK}\include\*" };
+        [x86] {
+            lib: ${SDL2_SDK}\lib\x86\*.lib;
+            bin: ${SDL2_SDK}\lib\x86\*.dll;
+        }
+        [x64] {
+            lib: ${SDL2_SDK}\lib\x64\*.lib;
+            bin: ${SDL2_SDK}\lib\x64\*.dll;
+        }
+    }
+    targets {
+        Defines += HAS_SDL2;
+    }
+}
